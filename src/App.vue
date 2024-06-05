@@ -12,7 +12,13 @@ export default {
 
   data() {
     return {
-      store
+      store,
+      lang: {
+        en: "en",
+        it: "it",
+        es: "es",
+        ja: "ja"
+      }
     }
   },
 
@@ -47,7 +53,11 @@ export default {
     <li v-for="result in store.movieResults">
       <p>{{ result.title }}</p>
       <p>{{ result.original_title }}</p>
-      <p>{{ result.original_language }}</p>
+      <img v-if="result.original_language == lang.en" src="/img/england_flag.png" :alt="result.original_language">
+      <img v-else-if="result.original_language == lang.it" src="/img/italy_flag.png" :alt="result.original_language">
+      <img v-else-if="result.original_language == lang.es" src="/img/spain_flag.png" :alt="result.original_language">
+      <img v-else-if="result.original_language == lang.ja" src="/img/japan_flag.png" :alt="result.original_language">
+      <p v-else>{{ result.original_language }}</p>
       <p>{{ result.vote_average }}</p>
     </li>
   </ul>
@@ -68,5 +78,10 @@ li {
 
 p {
   padding: 5px 0;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }
 </style>
