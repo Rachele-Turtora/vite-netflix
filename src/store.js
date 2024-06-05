@@ -5,6 +5,7 @@ export const store = reactive({
     movieResults: [],
     tvResults: [],
     searchKey: "",
-    apiUrl: "https://api.themoviedb.org/3/search/movie"
+    apiUrlMovie: "https://api.themoviedb.org/3/search/movie",
+    apiUrlTv: "https://api.themoviedb.org/3/search/tv"
 })
 
