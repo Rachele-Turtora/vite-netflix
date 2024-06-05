@@ -1,9 +1,18 @@
 <script>
+import { store } from "../store";
+
 export default {
-    name: "SearchComponent"
+    name: "SearchComponent",
+    emits: ["search"],
+    data() {
+        return {
+            store
+        }
+    }
 }
 </script>
 
 <template>
-    <input type="text" placeholder="Search">
+    <input type="text" placeholder="Search" @change="$emit('search')" v-model="store.searchKey">
+    <button @change="$emit('search')">Invio</button>
 </template>
