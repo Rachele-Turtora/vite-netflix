@@ -1,7 +1,7 @@
 <script>
 export default {
     name: "CardsComponent",
-    props: ["title", "original_title", "language", "vote"],
+    props: ["img", "title", "original_title", "language", "vote"],
     data() {
         return {
             langs: {
@@ -30,10 +30,11 @@ export default {
 
 <template>
     <li>
+        <img :src="img" :alt="title">
         <p>{{ title }}</p>
         <p>{{ original_title }}</p>
         <div>
-            <img v-if="findLang(language)" :src="`/img/${findLang(language)[1]}_flag.png`" :alt="language">
+            <img class="flag" v-if="findLang(language)" :src="`/img/${findLang(language)[1]}_flag.png`" :alt="language">
             <p v-else>{{ language }}</p>
         </div>
         <p>{{ vote }}</p>
@@ -52,7 +53,7 @@ p {
     padding: 5px 0;
 }
 
-img {
+.flag {
     width: 50px;
     height: 50px;
 }
