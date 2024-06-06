@@ -23,6 +23,10 @@ export default {
                 }
             }
         },
+
+        voteInStars(vote) {
+            return Math.round(vote / 2);
+        }
     }
 }
 
@@ -37,7 +41,8 @@ export default {
             <img class="flag" v-if="findLang(language)" :src="`/img/${findLang(language)[1]}_flag.png`" :alt="language">
             <p v-else>{{ language }}</p>
         </div>
-        <p>{{ vote }}</p>
+        <span v-for="star in voteInStars(vote)"><i class="fa fa-star" aria-hidden="true"></i></span>
+        <span v-for="star in (5 - voteInStars(vote))"><i class="fa fa-star-o" aria-hidden="true"></i></span>
     </li>
 </template>
 
@@ -56,5 +61,11 @@ p {
 .flag {
     width: 50px;
     height: 50px;
+}
+
+.fa-star,
+.fa-star-o {
+    color: rgb(235, 200, 0);
+    margin: 2px;
 }
 </style>
