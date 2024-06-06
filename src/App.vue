@@ -2,14 +2,16 @@
 import { store } from "./store";
 import axios from "axios";
 
+import HeaderComponent from "./components/HeaderComponent.vue";
 import SearchComponent from './components/SearchComponent.vue';
 import CardsComponent from "./components/CardsComponent.vue";
 
 export default {
   name: "MyApp",
   components: {
+    HeaderComponent,
     SearchComponent,
-    CardsComponent
+    CardsComponent,
   },
 
   data() {
@@ -56,14 +58,14 @@ export default {
 </script>
 
 <template>
-  <h1>Boolflix</h1>
+  <HeaderComponent />
   <SearchComponent @search="search" />
   <div class="container" v-show="store.movieResults.length">
     <h2>Movies</h2>
     <ul>
       <CardsComponent v-for="result in store.movieResults" :key="result.id" :img="`${image}${result.poster_path}`"
         :title="result.title" :original_title="result.original_title" :language="result.original_language"
-        :vote="result.vote_average" />
+        :vote="result.vote_average" :overview="result.overview" />
     </ul>
   </div>
   <div class="container" v-show="store.tvResults.length">
@@ -71,7 +73,7 @@ export default {
     <ul>
       <CardsComponent v-for="result in store.tvResults" :key="result.id" :img="`${image}${result.poster_path}`"
         :title="result.name" :original_title="result.original_name" :language="result.original_language"
-        :vote="result.vote_average" />
+        :vote="result.vote_average" :overview="result.overview" />
     </ul>
   </div>
 </template>
