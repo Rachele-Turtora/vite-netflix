@@ -5,8 +5,13 @@ export const store = reactive({
     movieResults: [],
     tvResults: [],
     searchKey: "",
-    apiUrlMovie: "https://api.themoviedb.org/3/search/movie",
-    apiUrlTv: "https://api.themoviedb.org/3/search/tv",
+    apiInfo: {
+        apiUrl: "https://api.themoviedb.org/3/search/",
+        endpoints: {
+            movie: "movie",
+            tv: "tv"
+        }
+    },
     srcImg: "https://image.tmdb.org/t/p/"
 })
 

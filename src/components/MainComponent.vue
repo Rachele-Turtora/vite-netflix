@@ -37,8 +37,11 @@ export default {
                 params.query = this.store.searchKey;
             }
 
-            this.apiCall(this.store.apiUrlMovie, params, "movieResults");
-            this.apiCall(this.store.apiUrlTv, params, "tvResults");
+            const movieUrl = this.store.apiInfo.apiUrl + this.store.apiInfo.endpoints.movie;
+            const tvUrl = this.store.apiInfo.apiUrl + this.store.apiInfo.endpoints.tv;
+
+            this.apiCall(movieUrl, params, "movieResults");
+            this.apiCall(tvUrl, params, "tvResults");
         },
 
         apiCall(url, params, results) {
