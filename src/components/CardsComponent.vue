@@ -62,7 +62,6 @@ li {
     min-height: 420px;
     margin: 20px 15px 20px 0;
     border: 1px solid black;
-    padding-left: 5px;
 }
 
 p {
