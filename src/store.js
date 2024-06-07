@@ -12,6 +12,7 @@ export const store = reactive({
             tv: "tv"
         }
     },
-    srcImg: "https://image.tmdb.org/t/p/"
+    srcImg: "https://image.tmdb.org/t/p/",
+    loading: true
 })
 
