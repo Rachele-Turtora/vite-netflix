@@ -66,5 +66,6 @@ export default {
 .main-container {
   min-height: calc(100% - 80px);
   background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 80px;
 }
 </style>

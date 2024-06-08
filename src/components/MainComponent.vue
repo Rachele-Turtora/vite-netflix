@@ -19,6 +19,12 @@ export default {
     computed: {
         image() {
             return store.srcImg + this.imgWidth
+        },
+        filteredMovie() {
+            return store.movieResults.filter(result => result.poster_path)
+        },
+        filteredTv() {
+            return store.tvResults.filter(result => result.poster_path)
         }
     }
 }
@@ -28,7 +34,7 @@ export default {
     <div class="container" v-show="store.endSearch">
         <h2>Movies</h2>
         <ul v-if="store.movieResults.length">
-            <CardsComponent v-for="result in store.movieResults" :key="result.id" :img="`${image}${result.poster_path}`"
+            <CardsComponent v-for="result in filteredMovie" :key="result.id" :img="`${image}${result.poster_path}`"
                 :title="result.title" :original_title="result.original_title" :language="result.original_language"
                 :vote="result.vote_average" :overview="result.overview" />
         </ul>
@@ -37,7 +43,7 @@ export default {
     <div class="container" v-show="store.endSearch">
         <h2>Tv series</h2>
         <ul v-if="store.tvResults.length">
-            <CardsComponent v-for="result in store.tvResults" :key="result.id" :img="`${image}${result.poster_path}`"
+            <CardsComponent v-for="result in filteredTv" :key="result.id" :img="`${image}${result.poster_path}`"
                 :title="result.name" :original_title="result.original_name" :language="result.original_language"
                 :vote="result.vote_average" :overview="result.overview" />
         </ul>

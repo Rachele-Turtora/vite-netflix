@@ -60,14 +60,13 @@ export default {
 li {
     margin: 20px 15px 20px 0;
     flex-shrink: 0;
+    max-width: 185px;
+    max-height: 278px;
+    overflow-y: auto;
 }
 
 p {
     margin: 10px 0;
-}
-
-img {
-    min-height: 280px;
 }
 
 .flag {
@@ -82,7 +81,6 @@ img {
 }
 
 .info {
-    height: 100%;
     background-color: rgba(0, 0, 0);
     color: white;
     padding: 10px;
