@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 li {
-    width: calc(25% - 40px);
+    width: calc(25% - 15px);
     min-height: 420px;
     margin: 20px 15px 20px 0;
     border: 1px solid black;
@@ -85,7 +85,7 @@ p {
 
 .info {
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0);
     color: white;
     padding: 10px;
 }

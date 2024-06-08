@@ -47,7 +47,12 @@ export default {
 
 <style>
 .container {
-    margin: 30px 20px;
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+    color: white;
 }
 
 ul {
