@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             store,
-            imgWidth: "w154"
+            imgWidth: "w185"
         }
     },
 
@@ -48,15 +48,15 @@ export default {
 <style>
 .container {
     padding: 30px 20px;
-    background-color: rgba(0, 0, 0, 0.8);
 }
 
-h2 {
+h2,
+p {
     color: white;
 }
 
 ul {
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: auto;
 }
 </style>

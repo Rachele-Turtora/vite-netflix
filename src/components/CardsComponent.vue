@@ -58,14 +58,16 @@ export default {
 
 <style scoped>
 li {
-    width: calc(25% - 15px);
-    min-height: 420px;
     margin: 20px 15px 20px 0;
-    border: 1px solid black;
+    flex-shrink: 0;
 }
 
 p {
     margin: 10px 0;
+}
+
+img {
+    min-height: 280px;
 }
 
 .flag {
@@ -77,10 +79,6 @@ p {
 .fa-star-o {
     color: rgb(235, 200, 0);
     margin: 2px;
-}
-
-.poster {
-    height: 100%;
 }
 
 .info {

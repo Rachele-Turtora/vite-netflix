@@ -57,9 +57,14 @@ export default {
   <div v-if="this.store.loading">
     <p>Caricamento in corso...</p>
   </div>
-  <div v-else>
+  <div class="main-container" v-else>
     <MainComponent />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main-container {
+  min-height: calc(100% - 80px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
