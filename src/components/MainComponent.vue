@@ -25,21 +25,23 @@ export default {
 </script>
 
 <template>
-    <div class="container" v-show="store.movieResults.length">
+    <div class="container" v-show="store.endSearch">
         <h2>Movies</h2>
-        <ul>
+        <ul v-if="store.movieResults.length">
             <CardsComponent v-for="result in store.movieResults" :key="result.id" :img="`${image}${result.poster_path}`"
                 :title="result.title" :original_title="result.original_title" :language="result.original_language"
                 :vote="result.vote_average" :overview="result.overview" />
         </ul>
+        <p v-else>No results found</p>
     </div>
-    <div class="container" v-show="store.tvResults.length">
+    <div class="container" v-show="store.endSearch">
         <h2>Tv series</h2>
-        <ul>
+        <ul v-if="store.tvResults.length">
             <CardsComponent v-for="result in store.tvResults" :key="result.id" :img="`${image}${result.poster_path}`"
                 :title="result.name" :original_title="result.original_name" :language="result.original_language"
                 :vote="result.vote_average" :overview="result.overview" />
         </ul>
+        <p v-else>No results found</p>
     </div>
 </template>
 

@@ -13,6 +13,7 @@ export const store = reactive({
         }
     },
     srcImg: "https://image.tmdb.org/t/p/",
-    loading: true
+    loading: false,
+    endSearch: false
 })
 

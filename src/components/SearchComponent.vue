@@ -15,7 +15,7 @@ export default {
 <template>
     <div class="search">
         <input type="text" placeholder="Search" @change="$emit('search')" v-model="store.searchKey">
-        <button @change="$emit('search')">Invio</button>
+        <button @click="$emit('search')">Invio</button>
     </div>
 </template>
 
