@@ -58,7 +58,7 @@ export default {
 
 <style scoped>
 li {
-    margin: 20px 15px 20px 0;
+    margin: 0 15px;
     flex-shrink: 0;
     max-width: 185px;
     max-height: 278px;
@@ -72,6 +72,10 @@ p {
 .flag {
     width: 50px;
     height: 50px;
+}
+
+.poster {
+    height: 278px;
 }
 
 .fa-star,

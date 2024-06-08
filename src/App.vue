@@ -32,8 +32,8 @@ export default {
           params.query = this.store.searchKey;
         }
 
-        const movieUrl = this.store.apiInfo.apiUrl + this.store.apiInfo.endpoints.movie;
-        const tvUrl = this.store.apiInfo.apiUrl + this.store.apiInfo.endpoints.tv;
+        const movieUrl = this.store.apiInfo.apiSearchUrl + this.store.apiInfo.searchEndpoints.movie;
+        const tvUrl = this.store.apiInfo.apiSearchUrl + this.store.apiInfo.searchEndpoints.tv;
 
         this.apiCall(movieUrl, params, "movieResults");
         this.apiCall(tvUrl, params, "tvResults");
@@ -64,8 +64,8 @@ export default {
 
 <style scoped>
 .main-container {
-  min-height: calc(100% - 80px);
-  background-color: rgba(0, 0, 0, 0.8);
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
   padding-top: 80px;
 }
 </style>
