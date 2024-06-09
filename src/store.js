@@ -6,6 +6,8 @@ export const store = reactive({
     tvResults: [],
     movieGenres: [],
     tvGenres: [],
+    movieGenreSelected: "",
+    tvGenreSelected: "",
     searchKey: "",
     apiInfo: {
         apiSearchUrl: "https://api.themoviedb.org/3/search/",

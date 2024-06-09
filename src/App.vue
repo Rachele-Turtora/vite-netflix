@@ -46,6 +46,15 @@ export default {
           this.store[results] = response.data.results;
           this.store.loading = false;
           this.store.endSearch = true;
+
+          if (this.store.movieGenreSelected !== "") {
+            this.store.movieResults = this.store.movieResults.filter(result => result.genre_ids.includes(store.movieGenreSelected))
+          }
+
+          if (this.store.tvGenreSelected !== "") {
+            this.store.tvResults = this.store.tvResults.filter(result => result.genre_ids.includes(store.tvGenreSelected))
+          }
+          this.apiCall(movieUrl, params, "movieResults")
         })
     }
   }
@@ -58,7 +67,7 @@ export default {
     <p>Caricamento in corso...</p>
   </div>
   <div class="main-container" v-else>
-    <MainComponent />
+    <MainComponent @search="search()" />
   </div>
 </template>
 

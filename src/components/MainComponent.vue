@@ -10,6 +10,8 @@ export default {
         CardsComponent
     },
 
+    emits: ["search"],
+
     data() {
         return {
             store,
@@ -44,10 +46,9 @@ export default {
 
         apiCall(url, params, genres) {
             axios.get(url, { params }, genres).then(response => {
-                this.store[genres] = response.data.genres
-                console.log(response.data.genres.length)
+                this.store[genres] = response.data.genres;
             })
-        }
+        },
     }
 }
 </script>
@@ -56,9 +57,10 @@ export default {
     <div class="container" v-show="store.endSearch">
         <div class="genres">
             <h2>Movies</h2>
-            <select class="form-select" @click="selectGenre()" aria-label="Default select example">
-                <option selected>Generi</option>
-                <option v-for="genre in store.movieGenres" :value="genre.name"> {{ genre.name }} </option>
+            <select class="form-select" @click="selectGenre()" @change="$emit('search')" v-model="store.movieGenreSelected"
+                aria-label="Default select example">
+                <option selected value="">Generi</option>
+                <option v-for="genre in store.movieGenres" :value="genre.id"> {{ genre.name }} </option>
             </select>
         </div>
         <ul v-if="store.movieResults.length">
@@ -71,9 +73,10 @@ export default {
     <div class="container" v-show="store.endSearch">
         <div class="genres">
             <h2>Tv series</h2>
-            <select class="form-select" @click="selectGenre()" aria-label="Default select example">
-                <option selected>Generi</option>
-                <option v-for="genre in store.tvGenres" :value="genre.name"> {{ genre.name }} </option>
+            <select class="form-select" @click="selectGenre()" @change="$emit('search')" v-model="store.tvGenreSelected"
+                aria-label="Default select example">
+                <option selected value="">Generi</option>
+                <option v-for="genre in store.tvGenres" :value="genre.id"> {{ genre.name }} </option>
             </select>
         </div>
         <ul v-if="store.tvResults.length">
