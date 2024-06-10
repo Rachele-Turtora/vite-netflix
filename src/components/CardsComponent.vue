@@ -25,12 +25,14 @@ export default {
             }
         },
 
-        voteInStars(vote) {
-            return Math.round(vote / 2);
-        },
-
         display() {
             this.displayInfo = !this.displayInfo
+        }
+    },
+
+    computed: {
+        voteInStars() {
+            return Math.round(this.vote / 2);
         }
     }
 }
@@ -41,17 +43,18 @@ export default {
     <li @click="display()">
         <img class="poster" v-show="!displayInfo" :src="img" :alt="title">
         <div class="info" v-show="displayInfo">
-            <p>Titolo: {{ title }}</p>
-            <p>Titolo originale: {{ original_title }}</p>
+            <p><strong>Titolo:</strong> {{ title }}</p>
+            <p><strong>Titolo originale:</strong> {{ original_title }}</p>
             <div>
                 <img class="flag" v-if="findLang(language)" :src="`/img/${findLang(language)[1]}_flag.png`" :alt="language">
                 <p v-else>{{ language }}</p>
             </div>
-            <div>Voto:
-                <span v-for="star in voteInStars(vote)"><i class="fa fa-star" aria-hidden="true"></i></span>
-                <span v-for="star in (5 - voteInStars(vote))"><i class="fa fa-star-o" aria-hidden="true"></i></span>
+            <div><strong>Voto:</strong>
+                <span v-for="star in 5">
+                    <i :class="star <= voteInStars ? 'fa fa-star' : 'fa fa-star-o'" aria-hidden="true"></i>
+                </span>
             </div>
-            <p>Overview: {{ overview }}</p>
+            <p><strong>Overview:</strong> {{ overview }}</p>
         </div>
     </li>
 </template>
