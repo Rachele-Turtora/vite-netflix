@@ -19,11 +19,10 @@ export default {
 
 <template>
     <div class="search">
-        <div class="input-field" v-show="store.displayInput">
-            <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="input-field" :class="{ expanded: store.displayInput }">
+            <i class="fa fa-search" @click="toggleInput()" aria-hidden="true"></i>
             <input type="text" placeholder="Titoli" @change="$emit('search')" v-model="store.searchKey">
         </div>
-        <i class="fa fa-search" v-show="!store.displayInput" @click="toggleInput()" aria-hidden="true"></i>
         <button @click="$emit('search')">Invio</button>
     </div>
 </template>
@@ -56,11 +55,17 @@ i {
 
 .input-field input {
     background-color: black;
-    border: 1px solid white;
     color: white;
-    width: 200px;
     height: 40px;
     padding-left: 35px;
+    border: none;
+    transition: width 1s ease;
+    width: 0;
+}
+
+.input-field.expanded input {
+    width: 200px;
+    border: 1px solid white;
 }
 
 .input-field input::placeholder {

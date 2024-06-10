@@ -108,6 +108,9 @@ select {
     margin-left: 20px;
     width: 120px;
     height: 30px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
 }
 
 ul {
