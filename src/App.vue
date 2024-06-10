@@ -47,14 +47,13 @@ export default {
           this.store.loading = false;
           this.store.endSearch = true;
 
-          if (this.store.movieGenreSelected !== "") {
-            this.store.movieResults = this.store.movieResults.filter(result => result.genre_ids.includes(store.movieGenreSelected))
+          if (this.store.movieGenreSelected) {
+            this.store.movieResults = this.store.movieResults.filter(result => result.genre_ids.includes(this.store.movieGenreSelected));
           }
 
-          if (this.store.tvGenreSelected !== "") {
-            this.store.tvResults = this.store.tvResults.filter(result => result.genre_ids.includes(store.tvGenreSelected))
+          if (this.store.tvGenreSelected) {
+            this.store.tvResults = this.store.tvResults.filter(result => result.genre_ids.includes(this.store.tvGenreSelected));
           }
-          this.apiCall(movieUrl, params, "movieResults")
         })
     }
   }
